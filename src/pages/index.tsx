@@ -4,7 +4,6 @@ import { AboutMe } from "../components/AboutMe";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { Achievements } from "@/components/Achievements";
 import { Timeline } from "@/components/Timeline";
-import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -30,9 +29,6 @@ const Home = () => {
         </section>
         <section id="timeline">
           <Timeline />
-        </section>
-        <section id="contact">
-          <Contact />
         </section>
         <Footer />
         <ThemeToggle />
