@@ -6,15 +6,9 @@ export const AboutMe = () => {
   return (
     <section id="about" className="py-16 bg-black text-white">
       <div className="container mx-auto px-4">
-        {/* Header with animation */}
-        <motion.h2
-          className="text-4xl font-bold text-center text-green-400 mb-12"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          About Me
-        </motion.h2>
+          <h2 className="text-3xl font-bold text-center text-green-400 mb-12">
+            About Me
+          </h2>
 
         {/* Content */}
         <div className="flex flex-col md:flex-row items-center md:items-start md:space-x-8">
