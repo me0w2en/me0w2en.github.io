@@ -4,10 +4,10 @@ import { FaHome, FaUser, FaProjectDiagram, FaEnvelope, FaCogs } from "react-icon
 
 const menuItems = [
   { icon: <FaHome />, label: "Home", href: "#profile" },
-  { icon: <FaUser />, label: "About", href: "#skills" },
+  { icon: <FaUser />, label: "About", href: "#about" },
   { icon: <FaProjectDiagram />, label: "Projects", href: "#projects" },
+  { icon: <FaEnvelope />, label: "Achievements", href: "#achievements" },
   { icon: <FaCogs />, label: "Timeline", href: "#timeline" },
-  { icon: <FaEnvelope />, label: "Contact", href: "#contact" },
 ];
 
 export const Sidebar = () => {
