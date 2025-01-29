@@ -5,7 +5,6 @@ import { ProjectGallery } from "@/components/ProjectGallery";
 import { Achievements } from "@/components/Achievements";
 import { Timeline } from "@/components/Timeline";
 import { Footer } from "@/components/Footer";
-import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Home = () => {
   return (
@@ -21,7 +20,7 @@ const Home = () => {
         <section id="about">
           <AboutMe />
         </section>
-        <section id="projects">
+        <section id="projects" className="py-16 bg-white dark:bg-black text-black dark:text-white">
           <ProjectGallery />
         </section>
         <section id="achievements">
@@ -31,7 +30,6 @@ const Home = () => {
           <Timeline />
         </section>
         <Footer />
-        <ThemeToggle />
       </main>
     </div>
   );
