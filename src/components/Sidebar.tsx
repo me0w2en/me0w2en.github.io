@@ -57,12 +57,12 @@ export const Sidebar = () => {
         onMouseEnter={() => setIsExpanded(true)} // 확장
         onMouseLeave={() => setIsExpanded(false)} // 축소
       >
-        {/* 로고 */}
+        {/* 로고
         <div className="flex items-center justify-center h-16 border-b border-gray-800">
           <span className="text-2xl font-bold text-green-400">
             {isExpanded ? "MyPortfolio" : "MP"}
           </span>
-        </div>
+        </div> */}
 
         {/* 메뉴 항목 */}
         <ul className="mt-4 space-y-4">
