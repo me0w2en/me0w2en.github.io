@@ -6,9 +6,15 @@ export const AboutMe = () => {
   return (
     <section id="about" className="py-16 bg-black text-white">
       <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-green-400 mb-12">
-            About Me
-          </h2>
+        {/* Header with animation */}
+        <motion.h2
+          className="text-4xl font-bold text-center text-green-400 mb-12"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          About Me
+        </motion.h2>
 
         {/* Content */}
         <div className="flex flex-col md:flex-row items-center md:items-start md:space-x-8">
@@ -35,7 +41,7 @@ export const AboutMe = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              SOJIN NA <span className="text-green-400">:)</span>
+              NA SOJIN <span className="text-green-400">:)</span>
             </motion.h3>
             <motion.p
               className="text-lg text-gray-400 mb-4"
@@ -43,7 +49,7 @@ export const AboutMe = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Cybersecurity Specialist | Passionate about Securing Digital Systems
+              Computer Science Student | Cybersecurity Enthusiast
             </motion.p>
 
             {/* Info Grid */}
@@ -51,16 +57,16 @@ export const AboutMe = () => {
               {/* 연락처 정보 */}
               <div>
                 <FaPhone className="inline-block text-green-400 mr-2" />
-                <span>010-1234-5678</span>
+                <span>010-2055-7610</span>
               </div>
               <div>
                 <FaEnvelope className="inline-block text-green-400 mr-2" />
-                <span>example@gmail.com</span>
+                <span>sjan@outlook.kr</span>
               </div>
               <div>
                 <FaGithub className="inline-block text-green-400 mr-2" />
                 <a
-                  href="https://github.com/your-github"
+                  href="https://github.com/me0w2en"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -70,7 +76,7 @@ export const AboutMe = () => {
               <div>
                 <FaBlog className="inline-block text-green-400 mr-2" />
                 <a
-                  href="https://tistory.com/your-blog"
+                  href="https://me0w2en.tistory.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -81,11 +87,11 @@ export const AboutMe = () => {
               {/* 학력 정보 */}
               <div>
                 <FaGraduationCap className="inline-block text-green-400 mr-2" />
-                <span>Seoul National University</span>
+                <span>Chungnam National University</span>
               </div>
               <div>
                 <FaGraduationCap className="inline-block text-green-400 mr-2" />
-                <span>B.S. in Computer Science (2018-2022)</span>
+                <span>B.S. in Computer Science (2023 - Present)</span>
               </div>
             </div>
           </div>

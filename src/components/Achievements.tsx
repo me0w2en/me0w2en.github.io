@@ -1,7 +1,7 @@
 const achievements = [
-    { title: "Published Research Paper", description: "Presented at ISS 2024" },
-    { title: "Certified Ethical Hacker", description: "Earned CEH Certification in 2023" },
-    { title: "Top Performer at Internship", description: "Recognized for outstanding work in 2024" },
+    { title: "KITRI White-hat School 1기 수료", description: "Presented at ISS 2024" },
+    { title: "윤리적 해커 양성 5기 수료", description: "Earned CEH Certification in 2023" },
+    { title: "한국정보보호학회 충청지부 정보보호학술논문발표대회 포스터 발표", description: "Recognized for outstanding work in 2024" },
   ];
   
   export const Achievements = () => {

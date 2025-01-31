@@ -5,7 +5,7 @@ export const Footer = () => {
     <footer className="bg-black text-white py-4">
       <div className="container mx-auto text-center">
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} Your Name. All rights reserved.
+          &copy; {new Date().getFullYear()} me0w2en. All rights reserved.
         </p>
       </div>
     </footer>
