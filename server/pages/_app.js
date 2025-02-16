@@ -1,1 +1,0 @@
-(()=>{var e={};e.id=636,e.ids=[636],e.modules={7964:(e,r,s)=>{"use strict";s.r(r),s.d(r,{default:()=>u});var t=s(8732);s(9361);let u=({Component:e,pageProps:r})=>(0,t.jsx)(e,{...r})},9361:()=>{},8732:e=>{"use strict";e.exports=require("react/jsx-runtime")}};var r=require("../webpack-runtime.js");r.C(e);var s=r(r.s=7964);module.exports=s})();
