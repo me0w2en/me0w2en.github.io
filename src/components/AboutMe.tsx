@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaGithub, FaBlog, FaGraduationCap } from "react-icons/fa";
 
@@ -23,7 +22,7 @@ export const AboutMe = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Image
+            <img
               src="/profile-2.png"
               alt="Profile"
               className="w-70 h-auto mr-10"
