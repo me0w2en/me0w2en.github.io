@@ -26,9 +26,9 @@ export const AboutMe = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img
-              src="/profile-photo.jpg" // 프로필 사진 경로
+              src="/profile-2.png"
               alt="Profile"
-              className="w-40 h-40 rounded-full shadow-lg"
+              className="w-70 h-auto mr-10"
             />
           </motion.div>
 
