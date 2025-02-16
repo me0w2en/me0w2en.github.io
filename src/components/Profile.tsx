@@ -28,7 +28,7 @@ export const Profile = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        Hello, I'm [Your Name]
+        Hello, I'm [SOJIN]
       </motion.h1>
 
       {/* 간단한 소개 */}
