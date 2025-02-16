@@ -8,12 +8,10 @@ export const Profile = () => {
       id="profile"
       className="relative min-h-screen flex flex-col items-center justify-center bg-black text-white"
     >
-      {/* Network Traffic Canvas */}
       <NetworkTraffic />
 
-      {/* 프로필 사진 */}
       <motion.img
-        src="/profile.png" // 프로필 사진 경로
+        src="/profile.png"
         width={300}
         className="relative z-10 mb-8"
         initial={{ scale: 0.8, opacity: 0 }}
@@ -21,17 +19,15 @@ export const Profile = () => {
         transition={{ duration: 0.8 }}
       />
 
-      {/* 이름 */}
       <motion.h1
         className="relative z-10 text-4xl font-bold text-green-400 mb-4"
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        Hello, I'm [SOJIN]
+        Hello, I&apos;m [SOJIN]
       </motion.h1>
 
-      {/* 간단한 소개 */}
       <motion.p
         className="relative z-10 text-lg text-gray-300 text-center max-w-xl"
         initial={{ y: 30, opacity: 0 }}

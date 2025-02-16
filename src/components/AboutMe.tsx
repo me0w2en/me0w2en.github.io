@@ -1,12 +1,12 @@
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaPhone, FaGithub, FaBlog, FaGraduationCap } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaBlog, FaGraduationCap } from "react-icons/fa";
 
 export const AboutMe = () => {
   return (
     <section id="about" className="py-16 bg-black text-white">
       <div className="container mx-auto px-4">
-        {/* Header with animation */}
         <motion.h2
           className="text-4xl font-bold text-center text-green-400 mb-12"
           initial={{ opacity: 0, y: -20 }}
@@ -16,25 +16,21 @@ export const AboutMe = () => {
           About Me
         </motion.h2>
 
-        {/* Content */}
         <div className="flex flex-col md:flex-row items-center md:items-start md:space-x-8">
-          {/* Left: Animated Profile Picture */}
           <motion.div
             className="flex-shrink-0 mb-6 md:mb-0"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <img
+            <Image
               src="/profile-2.png"
               alt="Profile"
               className="w-70 h-auto mr-10"
             />
           </motion.div>
 
-          {/* Right: Information */}
           <div className="text-center md:text-left">
-            {/* Name and Title with animation */}
             <motion.h3
               className="text-4xl font-bold mb-2"
               initial={{ opacity: 0, y: 20 }}
@@ -52,7 +48,6 @@ export const AboutMe = () => {
               Computer Science Student | Cybersecurity Enthusiast
             </motion.p>
 
-            {/* Info Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-300">
               <div>
                 <FaEnvelope className="inline-block text-green-400 mr-2" />
@@ -79,7 +74,6 @@ export const AboutMe = () => {
                 </a>
               </div>
 
-              {/* 학력 정보 */}
               <div>
                 <FaGraduationCap className="inline-block text-green-400 mr-2" />
                 <span>Chungnam National University</span>
