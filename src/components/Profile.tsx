@@ -13,9 +13,9 @@ export const Profile = () => {
 
       {/* 프로필 사진 */}
       <motion.img
-        src="/profile.jpg" // 프로필 사진 경로
-        alt="Profile Picture"
-        className="relative z-10 w-40 h-40 rounded-full border-4 border-green-400 mb-6"
+        src="/profile.png" // 프로필 사진 경로
+        width={300}
+        className="relative z-10 mb-8"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.8 }}
