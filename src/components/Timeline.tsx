@@ -23,7 +23,7 @@ const timelineData = [
   {
     year: "2025",
     activities: [
-      "NSHC 싱가포르 지사 교육 연수"
+      "NSHC Singapore OSINT 교육 연수"
     ],
   },
 ];
