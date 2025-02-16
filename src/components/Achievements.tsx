@@ -1,7 +1,8 @@
+// description 작성
 const achievements = [
-    { title: "KITRI White-hat School 1기 수료", description: "Presented at ISS 2024" },
-    { title: "윤리적 해커 양성 5기 수료", description: "Earned CEH Certification in 2023" },
-    { title: "한국정보보호학회 충청지부 정보보호학술논문발표대회 포스터 발표", description: "Recognized for outstanding work in 2024" },
+    { title: "KITRI 주관 White-hat School 1기 수료"},
+    { title: "국가보안기술연구소 주관 윤리적 해커 양성 5기 수료"},
+    { title: "한국정보보호학회 충청지부 정보보호학술논문발표대회 포스터 발표"},
   ];
   
   export const Achievements = () => {
@@ -18,7 +19,7 @@ const achievements = [
                 className="p-6 bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all"
               >
                 <h3 className="text-xl font-bold text-green-400">{item.title}</h3>
-                <p className="text-gray-300">{item.description}</p>
+                {/* <p className="text-gray-300">{item.description}</p> */}
               </div>
             ))}
           </div>
