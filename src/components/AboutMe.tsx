@@ -54,11 +54,6 @@ export const AboutMe = () => {
 
             {/* Info Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-300">
-              {/* 연락처 정보 */}
-              <div>
-                <FaPhone className="inline-block text-green-400 mr-2" />
-                <span>010-2055-7610</span>
-              </div>
               <div>
                 <FaEnvelope className="inline-block text-green-400 mr-2" />
                 <span>sjan@outlook.kr</span>
