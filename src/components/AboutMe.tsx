@@ -23,7 +23,7 @@ export const AboutMe = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img
-              src="/profile-2.png"
+              src="/profile.png"
               alt="Profile"
               className="w-70 h-auto mr-10"
             />

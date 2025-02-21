@@ -10,14 +10,14 @@ export const Profile = () => {
     >
       <NetworkTraffic />
 
-      <motion.img
+      {/* <motion.img
         src="/profile.png"
         width={300}
         className="relative z-10 mb-8"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.8 }}
-      />
+      /> */}
 
       <motion.h1
         className="relative z-10 text-4xl font-bold text-green-400 mb-4"
