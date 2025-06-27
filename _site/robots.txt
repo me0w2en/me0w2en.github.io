@@ -1,0 +1,6 @@
+User-agent: *
+
+Allow: /
+Disallow: /norobots/
+
+Sitemap: https://me0w2en.github.io/sitemap.xml
