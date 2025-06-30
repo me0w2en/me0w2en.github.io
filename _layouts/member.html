@@ -60,6 +60,15 @@ layout: page
     margin-left: 0.5rem;
   }
 
+  .member-link {
+    color: var(--accent-color, #4fb1ba);
+    text-decoration: none;
+  }
+
+  .member-link:hover {
+    text-decoration: underline;
+  }
+
   @media (max-width: 768px) {
     .team-grid {
       grid-template-columns: 1fr;
@@ -69,52 +78,34 @@ layout: page
 </style>
 
 <article class="page" role="article">
-  <div class="team-grid" id="teamList">
-    <!-- Member list will be populated by JavaScript -->
-  </div>
-</article>
-
-<script>
-  const rawMembers = {{ site.data.members | jsonify }};
-
-  const teamMembers = rawMembers.map(member => ({
-    ...member,
-    description: member.description || "",
-    blog: member.blog || null,
-    github: member.github || null,
-    avatar: member.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(member.name)}`
-  }));
-
-  function createMemberCard(member) {
-    const roleBadge = member.role ? `<span class="member-role-badge">(${member.role})</span>` : '';
-    const blogLink = member.blog
-      ? `<div><span class="link-label">- Blog:</span> <a href="${member.blog}" class="member-link" target="_blank">${member.blog}</a></div>`
-      : '';
-    const githubLink = member.github
-      ? `<div><span class="link-label">- GitHub:</span> <a href="https://github.com/${member.github}" class="member-link" target="_blank">${member.github}</a></div>`
-      : '';
-
-    return `
-      <div class="member-item">
-        <img src="${member.avatar}" alt="${member.name}" class="member-avatar">
-        <div class="member-info">
-          <h3 class="member-name">${member.name} ${roleBadge}</h3>
-          <p class="member-description">${member.description}</p>
-          <div class="member-links">
-            ${blogLink}
-            ${githubLink}
-          </div>
+  <div class="team-grid">
+    {% for member in site.data.members %}
+    <div class="member-item">
+      {% if member.avatar %}
+        {% assign avatar_url = member.avatar %}
+      {% else %}
+        {% assign encoded_name = member.name | url_encode %}
+        {% assign avatar_url = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' | append: encoded_name %}
+      {% endif %}
+      <img src="{{ avatar_url }}" alt="{{ member.name }}" class="member-avatar" onerror="this.style.display='none'">
+      <div class="member-info">
+        <h3 class="member-name">
+          {{ member.name }}
+          {% if member.role %}
+          <span class="member-role-badge">({{ member.role }})</span>
+          {% endif %}
+        </h3>
+        <p class="member-description">{{ member.description | default: "" }}</p>
+        <div class="member-links">
+          {% if member.blog %}
+          <div><span class="link-label">- Blog:</span> <a href="{{ member.blog }}" class="member-link" target="_blank">{{ member.blog }}</a></div>
+          {% endif %}
+          {% if member.github %}
+          <div><span class="link-label">- GitHub:</span> <a href="https://github.com/{{ member.github }}" class="member-link" target="_blank">{{ member.github }}</a></div>
+          {% endif %}
         </div>
       </div>
-    `;
-  }
-
-  function renderTeam() {
-    const teamList = document.getElementById('teamList');
-    if (teamList) {
-      teamList.innerHTML = teamMembers.map(createMemberCard).join('');
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', renderTeam);
-</script>
+    </div>
+    {% endfor %}
+  </div>
+</article>
