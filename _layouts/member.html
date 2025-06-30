@@ -1,0 +1,120 @@
+---
+layout: page
+---
+
+<style>
+  .team-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .member-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    gap: 1.5rem;
+    transition: transform 0.2s ease;
+  }
+
+  .member-info {
+    flex: 1;
+  }
+
+  .member-item:hover {
+    transform: translateY(-4px);
+  }
+
+  .member-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--border-color, #f8f9fa);
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--accent-color-highlight), var(--border-color, #f8f9fa));
+    flex-shrink: 0;
+  }
+
+  .member-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .member-description {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    color: #555;
+  }
+
+  .member-links {
+    font-size: 0.8rem;
+    color: #666;
+  }
+
+  .member-role-badge {
+    font-size: 0.9rem;
+    color: #888;
+    margin-left: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .team-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>
+
+<article class="page" role="article">
+  <div class="team-grid" id="teamList">
+    <!-- Member list will be populated by JavaScript -->
+  </div>
+</article>
+
+<script>
+  const rawMembers = {{ site.data.members | jsonify }};
+
+  const teamMembers = rawMembers.map(member => ({
+    ...member,
+    description: member.description || "",
+    blog: member.blog || null,
+    github: member.github || null,
+    avatar: member.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(member.name)}`
+  }));
+
+  function createMemberCard(member) {
+    const roleBadge = member.role ? `<span class="member-role-badge">(${member.role})</span>` : '';
+    const blogLink = member.blog
+      ? `<div><span class="link-label">- Blog:</span> <a href="${member.blog}" class="member-link" target="_blank">${member.blog}</a></div>`
+      : '';
+    const githubLink = member.github
+      ? `<div><span class="link-label">- GitHub:</span> <a href="https://github.com/${member.github}" class="member-link" target="_blank">${member.github}</a></div>`
+      : '';
+
+    return `
+      <div class="member-item">
+        <img src="${member.avatar}" alt="${member.name}" class="member-avatar">
+        <div class="member-info">
+          <h3 class="member-name">${member.name} ${roleBadge}</h3>
+          <p class="member-description">${member.description}</p>
+          <div class="member-links">
+            ${blogLink}
+            ${githubLink}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderTeam() {
+    const teamList = document.getElementById('teamList');
+    if (teamList) {
+      teamList.innerHTML = teamMembers.map(createMemberCard).join('');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', renderTeam);
+</script>
