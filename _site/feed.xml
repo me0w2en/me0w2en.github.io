@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>HSPACE DFLAB Tech Blog</title>
   <subtitle>hspace</subtitle>
-  <updated>2025-06-28T02:34:42+09:00</updated>
+  <updated>2025-06-30T11:38:23+09:00</updated>
   <author>
     <name>me0w2en</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,30 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>test</title>
+    <link href="http://localhost:4000/posts/space-war-1-web-write-up/" rel="alternate" type="text/html" title="test" />
+    <published>2025-06-29T02:17:35+09:00</published>
+  
+    <updated>2025-06-29T02:17:35+09:00</updated>
+  
+    <id>http://localhost:4000/posts/space-war-1-web-write-up/</id>
+    <content src="http://localhost:4000/posts/space-war-1-web-write-up/" />
+    <author>
+      <name>me0w2en</name>
+    </author>
+
+  
+    
+    <category term="test" />
+    
+  
+
+  <summary>test</summary>
+
+  </entry>
 
 </feed>
 
