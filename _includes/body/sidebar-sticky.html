@@ -5,7 +5,12 @@
         <img src="{% include_cached smart-url url=site.logo %}" class="avatar" alt="{{ site.short_title | default:site.title }}" width="120" height="120" loading="lazy" />
       </a>
     {% endif %}
-    <a class="sidebar-title" href="{{ '/' | relative_url }}"><h2 class="h1">{{ site.short_title | default:site.title }}</h2></a>
+    <a class="sidebar-title" href="{{ '/' | relative_url }}">
+      <h2 class="h1" id="typing-title">
+        <span id="typed-text"></span>
+        <span class="typing-cursor">|</span>
+      </h2>
+    </a>
     {% assign text = site.tagline | default:site.description %}
     {% if text %}
       <p class="{% if text.size > 100 %}fine{% endif %}">
@@ -23,3 +28,55 @@
     {% include components/social.html author=author %}
   </div>
 </div>
+
+<style>
+  .typing-cursor {
+    display: inline-block;
+    background-color: var(--accent-color, #4fb1ba);
+    margin-left: 3px;
+    width: 3px;
+    animation: blink 1s infinite;
+  }
+
+  .typing-cursor.hide {
+    background-color: transparent;
+    animation: none;
+  }
+
+  @keyframes blink {
+    0% { background-color: var(--accent-color, #4fb1ba); }
+    50% { background-color: transparent; }
+    100% { background-color: var(--accent-color, #4fb1ba); }
+  }
+
+  #typed-text {
+    border-right: none;
+  }
+
+  #typing-title {
+    min-height: 1.2em;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const textToType = "{{ site.short_title | default:site.title | escape }}";
+    const typedTextElement = document.getElementById('typed-text');
+    const cursorElement = document.querySelector('.typing-cursor');
+    let currentIndex = 0;
+
+    function typeText() {
+      if (currentIndex < textToType.length) {
+        typedTextElement.textContent += textToType.charAt(currentIndex);
+        currentIndex++;
+        setTimeout(typeText, 150); 
+      } else {
+        setTimeout(() => {
+          cursorElement.classList.add('hide');
+        }, 1000);
+      }
+    }
+
+    setTimeout(typeText, 500);
+  });
+</script>

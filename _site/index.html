@@ -103,7 +103,7 @@
   w._search = {
     DATA_URL: '/assets/sitedata.json?no-cache',
     STORAGE_KEY: 'mini-search/',
-    INDEX_KEY: 'index--2025-07-01T02:01:18+09:00',
+    INDEX_KEY: 'index--2025-07-01T02:06:58+09:00',
   };
   w._clapButton = true;
 }(window);</script>
@@ -221,7 +221,12 @@ html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79,177,186,0.5);
         <img src="/assets/img/logo.png" class="avatar" alt="HSPACE DFLAB" width="120" height="120" loading="lazy" />
       </a>
     
-    <a class="sidebar-title" href="/"><h2 class="h1">HSPACE DFLAB</h2></a>
+    <a class="sidebar-title" href="/">
+      <h2 class="h1" id="typing-title">
+        <span id="typed-text"></span>
+        <span class="typing-cursor">|</span>
+      </h2>
+    </a>
     
     
       <p class="">
@@ -348,6 +353,58 @@ html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79,177,186,0.5);
 
   </div>
 </div>
+
+<style>
+  .typing-cursor {
+    display: inline-block;
+    background-color: var(--accent-color, #4fb1ba);
+    margin-left: 3px;
+    width: 3px;
+    animation: blink 1s infinite;
+  }
+
+  .typing-cursor.hide {
+    background-color: transparent;
+    animation: none;
+  }
+
+  @keyframes blink {
+    0% { background-color: var(--accent-color, #4fb1ba); }
+    50% { background-color: transparent; }
+    100% { background-color: var(--accent-color, #4fb1ba); }
+  }
+
+  #typed-text {
+    border-right: none;
+  }
+
+  #typing-title {
+    min-height: 1.2em;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const textToType = "HSPACE DFLAB";
+    const typedTextElement = document.getElementById('typed-text');
+    const cursorElement = document.querySelector('.typing-cursor');
+    let currentIndex = 0;
+
+    function typeText() {
+      if (currentIndex < textToType.length) {
+        typedTextElement.textContent += textToType.charAt(currentIndex);
+        currentIndex++;
+        setTimeout(typeText, 150); 
+      } else {
+        setTimeout(() => {
+          cursorElement.classList.add('hide');
+        }, 1000);
+      }
+    }
+
+    setTimeout(typeText, 500);
+  });
+</script>
   </header>
 </hy-drawer>
 <hr class="sr-only" hidden />
