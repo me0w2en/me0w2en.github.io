@@ -46,6 +46,11 @@
   github: "example"
   description: ""
 
+- name: "강현우"
+  blog: "https://example.com"
+  github: "example"
+  description: ""
+  
 - name: "곽근진"
   blog: "https://example.com"
   github: "example"
@@ -132,11 +137,6 @@
   description: ""
 
 - name: "한희수"
-  blog: "https://example.com"
-  github: "example"
-  description: ""
-
-- name: "강현우"
   blog: "https://example.com"
   github: "example"
   description: ""
