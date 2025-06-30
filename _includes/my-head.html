@@ -11,3 +11,42 @@ Fill in `href`. You may have to adjust `rel`.
 -->
 <noscript><link href="<path/to/content.css>" rel="stylesheet"></noscript>
 {% endcomment %}
+
+
+<!-- 홈페이지에서 drawer 자동 열기 -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // welcome 레이아웃에서만 실행
+      if (document.body.classList.contains('layout-welcome')) {
+        const drawer = document.getElementById('_drawer');
+        
+        if (drawer && drawer.classList.contains('cover')) {
+          // 히스토리 상태 초기화
+          if (!history.state) {
+            history.replaceState({}, document.title);
+          }
+          
+          // closedOnce 상태 제거
+          if (history.state && history.state.closedOnce) {
+            delete history.state.closedOnce;
+          }
+          
+          // drawer 강제 열기
+          drawer.setAttribute('opened', '');
+          
+          // drawer 닫기 방지
+          const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              if (mutation.type === 'attributes' && mutation.attributeName === 'opened') {
+                if (!drawer.hasAttribute('opened')) {
+                  drawer.setAttribute('opened', '');
+                }
+              }
+            });
+          });
+          
+          observer.observe(drawer, { attributes: true });
+        }
+      }
+    });
+    </script>

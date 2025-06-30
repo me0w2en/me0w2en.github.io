@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="KR">
 
 
 
@@ -22,9 +22,9 @@
 <meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="HSPACE DFLAB" />
 <meta name="author" content="HSPACE DFLAB" />
-<meta property="og:locale" content="ko_KR" />
-<meta name="description" content="HSPACE DFLAB" />
-<meta property="og:description" content="HSPACE DFLAB" />
+<meta property="og:locale" content="KR" />
+<meta name="description" content="HSPACE DFLAB Tech Blog" />
+<meta property="og:description" content="HSPACE DFLAB Tech Blog" />
 <link rel="canonical" href="http://localhost:4000/404.html" />
 <meta property="og:url" content="http://localhost:4000/404.html" />
 <meta property="og:site_name" content="HSPACE DFLAB" />
@@ -32,7 +32,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="HSPACE DFLAB" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"HSPACE DFLAB"},"description":"HSPACE DFLAB","headline":"HSPACE DFLAB","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/logo.png"},"name":"HSPACE DFLAB"},"url":"http://localhost:4000/404.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"HSPACE DFLAB"},"description":"HSPACE DFLAB Tech Blog","headline":"HSPACE DFLAB","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/logo.png"},"name":"HSPACE DFLAB"},"url":"http://localhost:4000/404.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -64,7 +64,7 @@
 <meta name="generator" content="Hydejack v9.2.1" />
 
 
-<link rel="alternate" href="http://localhost:4000/404.html" hreflang="ko-kr">
+<link rel="alternate" href="http://localhost:4000/404.html" hreflang="kr">
 
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="HSPACE DFLAB" />
 
@@ -101,7 +101,7 @@
   w._search = {
     DATA_URL: '/assets/sitedata.json?no-cache',
     STORAGE_KEY: 'mini-search/',
-    INDEX_KEY: 'index--2025-06-30T22:52:16+09:00',
+    INDEX_KEY: 'index--2025-06-30T23:33:49+09:00',
   };
   w._clapButton = true;
 }(window);</script>
@@ -135,6 +135,44 @@ html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79,177,186,0.5);
 
 
 
+
+<!-- 홈페이지에서 drawer 자동 열기 -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // welcome 레이아웃에서만 실행
+      if (document.body.classList.contains('layout-welcome')) {
+        const drawer = document.getElementById('_drawer');
+        
+        if (drawer && drawer.classList.contains('cover')) {
+          // 히스토리 상태 초기화
+          if (!history.state) {
+            history.replaceState({}, document.title);
+          }
+          
+          // closedOnce 상태 제거
+          if (history.state && history.state.closedOnce) {
+            delete history.state.closedOnce;
+          }
+          
+          // drawer 강제 열기
+          drawer.setAttribute('opened', '');
+          
+          // drawer 닫기 방지
+          const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              if (mutation.type === 'attributes' && mutation.attributeName === 'opened') {
+                if (!drawer.hasAttribute('opened')) {
+                  drawer.setAttribute('opened', '');
+                }
+              }
+            });
+          });
+          
+          observer.observe(drawer, { attributes: true });
+        }
+      }
+    });
+    </script>
 
 </head>
 
@@ -214,7 +252,7 @@ html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79,177,186,0.5);
 <footer class="content" role="contentinfo">
   <hr/>
   
-    <p><small class="copyright">© 2024. All rights reserved.
+    <p><small class="copyright">© 2025. All rights reserved.
 </small></p>
   
   
@@ -300,6 +338,18 @@ html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79,177,186,0.5);
           
         >
           Blog
+        </a>
+      </li>
+    
+      
+      <li>
+        <a
+          
+          href="/projects/"
+          class="sidebar-nav-item "
+          
+        >
+          Project
         </a>
       </li>
     
