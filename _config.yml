@@ -49,12 +49,12 @@ author:
 menu:
   - title:             About
     url:               /
+  - title:             Member
+    url:               /member/
   - title:             Blog
     url:               /blog/
   - title:             Project
     url:               /projects/
-  - title:             Member
-    url:               /member/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
