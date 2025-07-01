@@ -20,14 +20,34 @@ url: https://df-lab.github.io
 lang: KR
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title: HSPACE DFLAB
+title: HDFLAB
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
-description: HSPACE DFLAB Tech Blog
+description:   The official blog of HSPACE DIGITAL FORENSICS LAB. 
+  We share cutting-edge research findings and technical insights 
+  in digital forensics, cybersecurity, malware analysis, and 
+  information security specialization. Through practical case 
+  studies and research results, we collaborate with digital 
+  forensics experts to advance knowledge and expertise in the field.  The official blog of HSPACE DIGITAL FORENSICS LAB. 
+  We share cutting-edge research findings and technical insights 
+  in digital forensics, cybersecurity, malware analysis, and 
+  information security specialization. Through practical case 
+  studies and research results, we collaborate with digital 
+  forensics experts to advance knowledge and expertise in the field.
 
 # A shorter description for the sidebar.
-tagline: HSPACE DFLAB Tech Blog
+tagline: The official blog of HSPACE DIGITAL FORENSICS LAB. 
+  We share cutting-edge research findings and technical insights 
+  in digital forensics, cybersecurity, malware analysis, and 
+  information security specialization. Through practical case 
+  studies and research results, we collaborate with digital 
+  forensics experts to advance knowledge and expertise in the field.  The official blog of HSPACE DIGITAL FORENSICS LAB. 
+  We share cutting-edge research findings and technical insights 
+  in digital forensics, cybersecurity, malware analysis, and 
+  information security specialization. Through practical case 
+  studies and research results, we collaborate with digital 
+  forensics experts to advance knowledge and expertise in the field.
 
 # A list of keywords for your blog
 keywords:              []
