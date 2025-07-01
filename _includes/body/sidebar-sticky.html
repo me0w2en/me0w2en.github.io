@@ -1,9 +1,10 @@
 <div class="sidebar-sticky">
   <div class="sidebar-about">
     {% if site.logo %}
-      <a class="no-hover" href="{{ '/' | relative_url }}" tabindex="-1">
-        <img src="{% include_cached smart-url url=site.logo %}" class="avatar" alt="{{ site.short_title | default:site.title }}" width="120" height="120" loading="lazy" />
-      </a>
+    <a class="no-hover" href="{{ '/' | relative_url }}" tabindex="-1">
+      <img src="{% include_cached smart-url url=site.logo %}" class="avatar"
+        alt="{{ site.short_title | default:site.title }}" width="120" height="120" loading="lazy" />
+    </a>
     {% endif %}
     <a class="sidebar-title" href="{{ '/' | relative_url }}">
       <h2 class="h1" id="typing-title">
@@ -13,9 +14,10 @@
     </a>
     {% assign text = site.tagline | default:site.description %}
     {% if text %}
-      <p class="{% if text.size > 100 %}fine{% endif %}">
-        {{ text | markdownify | replace:'<p>','' | replace:'</p>','' }}
-      </p>
+    <p class="{% if text.size > 100 %}fine{% endif %}">
+      {{ text | markdownify | replace:'
+    <p>','' | replace:'</p>','' }}
+    </p>
     {% endif %}
   </div>
 
@@ -32,11 +34,12 @@
 <style>
   .typing-cursor {
     display: inline-block;
-    background-color: var(--accent-color, #4fb1ba);
-    margin-left: 3px;
-    width: 3px;
-    animation: blink 1s infinite;
+    width: 2px;
+    height: 1em;
+    margin-left: 4px;
+    animation: blink 1s step-start infinite;
   }
+
 
   .typing-cursor.hide {
     background-color: transparent;
@@ -44,39 +47,59 @@
   }
 
   @keyframes blink {
-    0% { background-color: var(--accent-color, #4fb1ba); }
-    50% { background-color: transparent; }
-    100% { background-color: var(--accent-color, #4fb1ba); }
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 
   #typed-text {
     border-right: none;
   }
 
   #typing-title {
-    min-height: 1.2em;
+    white-space: nowrap;
+    min-height: 1em;
   }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const textToType = "{{ site.short_title | default:site.title | escape }}";
+  document.addEventListener('DOMContentLoaded', function () {
+    const texts = ["HDFLAB", "Digital Forensics", "Incident Response"];
     const typedTextElement = document.getElementById('typed-text');
     const cursorElement = document.querySelector('.typing-cursor');
-    let currentIndex = 0;
+    const typingDelay = 150;
+    const erasingDelay = 100;
+    const newTextDelay = 2000;
 
-    function typeText() {
-      if (currentIndex < textToType.length) {
-        typedTextElement.textContent += textToType.charAt(currentIndex);
-        currentIndex++;
-        setTimeout(typeText, 150); 
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+      const currentText = texts[textIndex];
+
+      if (isDeleting) {
+        typedTextElement.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          isDeleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+          setTimeout(type, typingDelay);
+        } else {
+          setTimeout(type, erasingDelay);
+        }
       } else {
-        setTimeout(() => {
-          cursorElement.classList.add('hide');
-        }, 1000);
+        typedTextElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentText.length) {
+          isDeleting = true;
+          setTimeout(type, newTextDelay);
+        } else {
+          setTimeout(type, typingDelay);
+        }
       }
     }
 
-    setTimeout(typeText, 500);
+    setTimeout(type, 500);
   });
 </script>

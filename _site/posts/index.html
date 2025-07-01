@@ -101,7 +101,7 @@
   w._search = {
     DATA_URL: '/assets/sitedata.json?no-cache',
     STORAGE_KEY: 'mini-search/',
-    INDEX_KEY: 'index--2025-07-01T19:35:02+09:00',
+    INDEX_KEY: 'index--2025-07-01T19:58:36+09:00',
   };
   w._clapButton = true;
 }(window);</script>
@@ -319,9 +319,10 @@ html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79,177,186,0.5);
     <div class="sidebar-sticky">
   <div class="sidebar-about">
     
-      <a class="no-hover" href="/" tabindex="-1">
-        <img src="/assets/img/logo.png" class="avatar" alt="HDFLAB" width="120" height="120" loading="lazy" />
-      </a>
+    <a class="no-hover" href="/" tabindex="-1">
+      <img src="/assets/img/logo.png" class="avatar"
+        alt="HDFLAB" width="120" height="120" loading="lazy" />
+    </a>
     
     <a class="sidebar-title" href="/">
       <h2 class="h1" id="typing-title">
@@ -331,10 +332,10 @@ html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79,177,186,0.5);
     </a>
     
     
-      <p class="fine">
-        HSPACE DIGITAL FORENSICS LAB’s blog sharing research in digital forensics, cybersecurity, and malware analysis through expert collaboration and case studies.
+    <p class="fine">
+      <p>HSPACE DIGITAL FORENSICS LAB’s blog sharing research in digital forensics, cybersecurity, and malware analysis through expert collaboration and case studies.
 
-      </p>
+    </p>
     
   </div>
 
@@ -447,11 +448,12 @@ html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79,177,186,0.5);
 <style>
   .typing-cursor {
     display: inline-block;
-    background-color: var(--accent-color, #4fb1ba);
-    margin-left: 3px;
-    width: 3px;
-    animation: blink 1s infinite;
+    width: 2px;
+    height: 1em;
+    margin-left: 4px;
+    animation: blink 1s step-start infinite;
   }
+
 
   .typing-cursor.hide {
     background-color: transparent;
@@ -459,40 +461,60 @@ html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79,177,186,0.5);
   }
 
   @keyframes blink {
-    0% { background-color: var(--accent-color, #4fb1ba); }
-    50% { background-color: transparent; }
-    100% { background-color: var(--accent-color, #4fb1ba); }
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 
   #typed-text {
     border-right: none;
   }
 
   #typing-title {
-    min-height: 1.2em;
+    white-space: nowrap;
+    min-height: 1em;
   }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const textToType = "HDFLAB";
+  document.addEventListener('DOMContentLoaded', function () {
+    const texts = ["HDFLAB", "Digital Forensics", "Incident Response"];
     const typedTextElement = document.getElementById('typed-text');
     const cursorElement = document.querySelector('.typing-cursor');
-    let currentIndex = 0;
+    const typingDelay = 150;
+    const erasingDelay = 100;
+    const newTextDelay = 2000;
 
-    function typeText() {
-      if (currentIndex < textToType.length) {
-        typedTextElement.textContent += textToType.charAt(currentIndex);
-        currentIndex++;
-        setTimeout(typeText, 150); 
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+      const currentText = texts[textIndex];
+
+      if (isDeleting) {
+        typedTextElement.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          isDeleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+          setTimeout(type, typingDelay);
+        } else {
+          setTimeout(type, erasingDelay);
+        }
       } else {
-        setTimeout(() => {
-          cursorElement.classList.add('hide');
-        }, 1000);
+        typedTextElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentText.length) {
+          isDeleting = true;
+          setTimeout(type, newTextDelay);
+        } else {
+          setTimeout(type, typingDelay);
+        }
       }
     }
 
-    setTimeout(typeText, 500);
+    setTimeout(type, 500);
   });
 </script>
   </header>
