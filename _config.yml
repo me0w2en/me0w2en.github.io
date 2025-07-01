@@ -40,7 +40,7 @@ logo: /assets/img/logo.png
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   # Used by `jekyll-feed`:
-  name: HSPACE DFLAB
+  name: HDFLAB
   email: df-lab@gmail.com
   # # Used by `jekyll-seo-tag`:
   # twitter:             <username>
@@ -52,8 +52,6 @@ menu:
   - title:             Member
     url:               /member/
   - title:             Blog
-    url:               /blog/
-  - title:             Project
     url:               /projects/
 
 # Add links to the footer.
