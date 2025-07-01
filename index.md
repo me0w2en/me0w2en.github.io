@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Thank You!
+title: About
 cover: true
 sitemap: false
 ---

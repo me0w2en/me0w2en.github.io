@@ -24,30 +24,10 @@ title: HDFLAB
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
-description:   The official blog of HSPACE DIGITAL FORENSICS LAB. 
-  We share cutting-edge research findings and technical insights 
-  in digital forensics, cybersecurity, malware analysis, and 
-  information security specialization. Through practical case 
-  studies and research results, we collaborate with digital 
-  forensics experts to advance knowledge and expertise in the field.  The official blog of HSPACE DIGITAL FORENSICS LAB. 
-  We share cutting-edge research findings and technical insights 
-  in digital forensics, cybersecurity, malware analysis, and 
-  information security specialization. Through practical case 
-  studies and research results, we collaborate with digital 
-  forensics experts to advance knowledge and expertise in the field.
+description: HSPACE DIGITAL FORENSICS LAB's blog sharing research in digital forensics, cybersecurity, and malware analysis through expert collaboration and case studies.
 
 # A shorter description for the sidebar.
-tagline: The official blog of HSPACE DIGITAL FORENSICS LAB. 
-  We share cutting-edge research findings and technical insights 
-  in digital forensics, cybersecurity, malware analysis, and 
-  information security specialization. Through practical case 
-  studies and research results, we collaborate with digital 
-  forensics experts to advance knowledge and expertise in the field.  The official blog of HSPACE DIGITAL FORENSICS LAB. 
-  We share cutting-edge research findings and technical insights 
-  in digital forensics, cybersecurity, malware analysis, and 
-  information security specialization. Through practical case 
-  studies and research results, we collaborate with digital 
-  forensics experts to advance knowledge and expertise in the field.
+tagline: HSPACE DIGITAL FORENSICS LAB's blog sharing research in digital forensics, cybersecurity, and malware analysis through expert collaboration and case studies.
 
 # A list of keywords for your blog
 keywords:              []
