@@ -1,11 +1,10 @@
-// 홈페이지에서 drawer 항상 열림
 body.layout-welcome {
   #_drawer.cover {
     transform: translateX(0) !important;
     visibility: visible !important;
     
     &::before {
-      display: none; // 오버레이 제거
+      display: none; 
     }
     
     #_sidebar {
@@ -19,7 +18,6 @@ body.layout-welcome {
     }
   }
   
-  // 메인 콘텐츠 숨기기 (필요한 경우)
   #_main {
     display: none;
   }
