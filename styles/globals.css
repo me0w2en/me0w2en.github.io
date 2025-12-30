@@ -235,3 +235,114 @@ pre code.hljs {
   border-radius: 0.25rem;
   font-size: 0.875em;
 }
+
+/* Post images - centered and rounded */
+.prose img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.75rem;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Table of Contents */
+.toc-link {
+  display: block;
+  padding: 0.25rem 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  transition: color 0.15s ease;
+}
+
+.toc-link:hover {
+  color: var(--accent-blue);
+}
+
+.toc-link.active {
+  color: var(--accent-blue);
+  font-weight: 500;
+}
+
+.toc-link-h3 {
+  padding-left: 1rem;
+  font-size: 0.8125rem;
+}
+
+/* TOC scrollbar - hidden */
+.toc-scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.toc-scroll::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+}
+
+/* Table styling */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.prose thead {
+  background-color: var(--background-tertiary);
+}
+
+.prose th {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--foreground);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.prose td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.prose tbody tr:hover {
+  background-color: var(--background-secondary);
+}
+
+.prose tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Table responsive wrapper */
+.prose table code {
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* Blockquote styling - no quotes */
+.prose blockquote {
+  border-left: 3px solid var(--accent-blue);
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  background-color: var(--background-secondary);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: normal;
+}
+
+.prose blockquote::before,
+.prose blockquote::after {
+  content: none;
+}
+
+.prose blockquote p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.prose blockquote p::before,
+.prose blockquote p::after {
+  content: none;
+}
