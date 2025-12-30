@@ -1,5 +1,6 @@
 ---
 title: "Windows Registry Forensic Analysis"
+image: "/images/windows-registry-thumbnail.png"
 date: "2025-01-14"
 tags: ["forensics", "windows", "registry"]
 category: "Digital Forensics"
