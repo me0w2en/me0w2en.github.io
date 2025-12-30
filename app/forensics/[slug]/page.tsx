@@ -1,6 +1,7 @@
 import { getPostBySlug, getAllPosts } from '@/lib/posts';
 import { markdownToHtml } from '@/lib/markdown';
 import { TagBadge } from '@/components/ui/TagBadge';
+import { TableOfContents } from '@/components/post/TableOfContents';
 import { format } from 'date-fns';
 import { ko } from 'date-fns/locale';
 import { notFound } from 'next/navigation';
@@ -46,7 +47,8 @@ export default async function ForensicsPostPage({ params }: { params: Promise<{ 
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border-color">
-        <div className="max-w-[1024px] mx-auto px-5 py-10">
+        <div className="max-w-[1200px] mx-auto px-5 py-10">
+          <div className="lg:pr-[calc(256px+2.5rem)]">
           {/* Category & Series */}
           <div className="flex items-center gap-3 mb-4">
             <Link
@@ -88,16 +90,27 @@ export default async function ForensicsPostPage({ params }: { params: Promise<{ 
               ))}
             </div>
           )}
+          </div>
         </div>
       </header>
 
-      {/* Content */}
-      <article className="max-w-[1024px] mx-auto px-5 py-10">
-        <div
-          className="prose prose-base dark:prose-invert max-w-none"
-          dangerouslySetInnerHTML={{ __html: contentHtml }}
-        />
-      </article>
+      {/* Content with TOC */}
+      <div className="max-w-[1200px] mx-auto px-5 py-10">
+        <div className="flex gap-10">
+          {/* Main Content */}
+          <article className="flex-1 min-w-0">
+            <div
+              className="prose prose-base dark:prose-invert max-w-none"
+              dangerouslySetInnerHTML={{ __html: contentHtml }}
+            />
+          </article>
+
+          {/* Table of Contents - Desktop Only */}
+          <aside className="hidden lg:block w-64 flex-shrink-0">
+            <TableOfContents contentHtml={contentHtml} />
+          </aside>
+        </div>
+      </div>
 
       {/* Footer Navigation */}
       <footer className="border-t border-border-color">
