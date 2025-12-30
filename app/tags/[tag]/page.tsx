@@ -1,8 +1,14 @@
 import { getPostsByTag, getAllTags } from '@/lib/posts';
 import { PostList } from '@/components/post/PostList';
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const tags = getAllTags();
+  // 태그가 없으면 빈 배열 반환 시 빌드 오류 발생하므로 placeholder 반환
+  if (tags.length === 0) {
+    return [{ tag: '__placeholder__' }];
+  }
   return tags.map(({ tag }) => ({
     tag,
   }));

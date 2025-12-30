@@ -7,13 +7,18 @@ import { ko } from 'date-fns/locale';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const posts = getAllPosts();
-  return posts
-    .filter((post) => post.category === 'forensics')
-    .map((post) => ({
-      slug: post.slug,
-    }));
+  const forensicsPosts = posts.filter((post) => post.category === 'forensics');
+  // 포스트가 없으면 빈 배열 반환 시 빌드 오류 발생하므로 placeholder 반환
+  if (forensicsPosts.length === 0) {
+    return [{ slug: '__placeholder__' }];
+  }
+  return forensicsPosts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {

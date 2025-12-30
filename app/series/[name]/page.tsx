@@ -3,8 +3,14 @@ import { PostCard } from '@/components/post/PostCard';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const series = getAllSeries();
+  // 시리즈가 없으면 빈 배열 반환 시 빌드 오류 발생하므로 placeholder 반환
+  if (series.length === 0) {
+    return [{ name: '__placeholder__' }];
+  }
   return series.map((name) => ({
     name: encodeURIComponent(name),
   }));
