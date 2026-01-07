@@ -1,4 +1,4 @@
-export type Category = 'study-log' | 'forensics';
+export type Category = 'mogakco' | 'forensics';
 
 export interface PostMeta {
   slug: string;

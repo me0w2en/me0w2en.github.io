@@ -8,7 +8,7 @@ interface PostCardProps {
 }
 
 export function PostCard({ post }: PostCardProps) {
-  const postUrl = post.category === 'study-log'
+  const postUrl = post.category === 'mogakco'
     ? `/posts/${post.slug}`
     : `/forensics/${post.slug}`;
 

@@ -9,11 +9,11 @@ const contentDirectory = path.join(process.cwd(), 'content');
  * 모든 포스트를 가져옵니다 (draft 제외)
  */
 export function getAllPosts(): PostMeta[] {
-  const categories: Category[] = ['study-log', 'forensics'];
+  const categories: Category[] = ['mogakco', 'forensics'];
   const allPosts: PostMeta[] = [];
 
   categories.forEach((category) => {
-    const categoryDir = path.join(contentDirectory, category === 'study-log' ? 'posts' : category);
+    const categoryDir = path.join(contentDirectory, category);
 
     if (!fs.existsSync(categoryDir)) {
       return;
@@ -49,9 +49,13 @@ export function getAllPosts(): PostMeta[] {
     });
   });
 
-  // 날짜 기준 내림차순 정렬
+  // 날짜 기준 내림차순 정렬, 날짜가 같으면 파일명(slug) 기준 내림차순 정렬
   return allPosts.sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
+    const dateCompare = new Date(b.date).getTime() - new Date(a.date).getTime();
+    if (dateCompare !== 0) {
+      return dateCompare;
+    }
+    return b.slug.localeCompare(a.slug);
   });
 }
 
@@ -59,7 +63,7 @@ export function getAllPosts(): PostMeta[] {
  * 특정 slug의 포스트를 가져옵니다
  */
 export function getPostBySlug(slug: string, category: Category): Post | null {
-  const categoryDir = path.join(contentDirectory, category === 'study-log' ? 'posts' : category);
+  const categoryDir = path.join(contentDirectory, category);
   const possibleExtensions = ['.md', '.mdx'];
 
   for (const ext of possibleExtensions) {

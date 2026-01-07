@@ -5,14 +5,14 @@ import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
   return [
-    { category: 'study-log' },
+    { category: 'mogakco' },
     { category: 'forensics' },
   ];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
-  const categoryLabel = category === 'study-log' ? 'Study Log' : 'Forensics / IR';
+  const categoryLabel = category === 'mogakco' ? '모각코' : 'Forensics / IR';
   return {
     title: `${categoryLabel} | me0w2en`,
     description: `${categoryLabel} 카테고리의 모든 포스트`,
@@ -23,14 +23,14 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   const { category: categoryParam } = await params;
   const category = categoryParam as Category;
 
-  if (category !== 'study-log' && category !== 'forensics') {
+  if (category !== 'mogakco' && category !== 'forensics') {
     notFound();
   }
 
   const posts = getPostsByCategory(category);
-  const categoryLabel = category === 'study-log' ? 'Study Log' : 'Forensics / IR';
-  const categoryDesc = category === 'study-log'
-    ? '컴퓨터공학, 보안 기초, 시스템 등에 관한 학습 기록'
+  const categoryLabel = category === 'mogakco' ? '모각코' : 'Forensics / IR';
+  const categoryDesc = category === 'mogakco'
+    ? '모여서 각자 코딩하기 - 학습 및 프로젝트 기록'
     : '디지털 포렌식, 침해사고 대응(IR), 증거 분석에 관한 기록';
 
   return (

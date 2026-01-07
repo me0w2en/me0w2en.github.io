@@ -11,19 +11,19 @@ export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
-  const studyLogPosts = posts.filter((post) => post.category === 'study-log');
+  const mogakcoPosts = posts.filter((post) => post.category === 'mogakco');
   // 포스트가 없으면 빈 배열 반환 시 빌드 오류 발생하므로 placeholder 반환
-  if (studyLogPosts.length === 0) {
+  if (mogakcoPosts.length === 0) {
     return [{ slug: '__placeholder__' }];
   }
-  return studyLogPosts.map((post) => ({
+  return mogakcoPosts.map((post) => ({
     slug: post.slug,
   }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug, 'study-log');
+  const post = getPostBySlug(slug, 'mogakco');
 
   if (!post) {
     return {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug, 'study-log');
+  const post = getPostBySlug(slug, 'mogakco');
 
   if (!post) {
     notFound();
@@ -57,10 +57,10 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           {/* Category & Series */}
           <div className="flex items-center gap-3 mb-4">
             <Link
-              href="/categories/study-log"
+              href="/categories/mogakco"
               className="inline-flex items-center px-3 py-1 rounded-full text-[13px] font-medium bg-accent-blue/10 text-accent-blue hover:bg-accent-blue/20 transition-colors"
             >
-              Study Log
+              모각코
             </Link>
             {post.series && (
               <Link
