@@ -241,9 +241,10 @@ pre code.hljs {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   max-width: 100%;
   height: auto;
+  border: 1px solid var(--border-color);
 }
 
 /* Table of Contents */
