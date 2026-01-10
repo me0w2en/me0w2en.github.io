@@ -82,9 +82,9 @@ export default function AboutPage() {
           <div className="space-y-4">
             {[
               {
-                title: 'HSPACE 인턴',
-                period: '2024',
-                desc: '보안 스타트업 인턴십',
+                title: '보안 스타트업 HSPACE 전략직군 엔지니어 인턴',
+                period: '2025.06 - 2025.12',
+                desc: '금융기업 및 제조기업 모의 침투 테스트 과제 참여',
               }
             ].map((item, index) => (
               <div key={index} className="p-4 rounded-lg bg-background-secondary border border-border-color">
