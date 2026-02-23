@@ -3,7 +3,7 @@ import { PostCard } from '@/components/post/PostCard';
 import Link from 'next/link';
 
 export default function Home() {
-  const allPosts = getAllPosts();
+  const allPosts = getAllPosts().filter(post => post.category !== 'mogakco');
   const allSeries = getAllSeriesWithInfo();
 
   return (
