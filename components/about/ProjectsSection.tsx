@@ -6,7 +6,7 @@ import { ProjectModal, Project } from '@/components/ui/ProjectModal';
 const projects: Project[] = [
   {
     title: 'DFIR Agent 개발 및 sLLM Fine-tuning',
-    period: '2024.09 - 2025.03',
+    period: '2025.09 - 2025.12',
     summary: 'DFIR 분석가의 반복 작업(아티팩트 추출/파싱/검색/요약)을 자동화하고, LLM의 근거·신뢰성·민감정보 이슈를 해결하기 위해 단일 Agent 기반 분석 파이프라인을 구축했습니다. 입력 전처리부터 MCP 자동 중개, 교차분석, 보고서 출력까지 일관된 흐름을 제공합니다.',
     role: 'PM / Architecture 설계 / Agent 개발 & 관련 데이터셋 설계',
     highlights: [
@@ -14,11 +14,57 @@ const projects: Project[] = [
       'Two-Stage Hybrid Planning 설계: High-Level Planning(Task 분해, DAG 의존성) + ReAct Execution(Think→Execute→Observe)',
       'MCP 서버 선택 전략 및 동적 프롬프트 주입으로 Tool 선택 정확도 향상',
       'Lazy Loading, 컨텍스트 절약, 스키마 캐싱, 재시도 로직 등 실사용 안정화 구현',
-      'MCP 선택 정확도 0.58→0.87, 평균 분석 시간 2시간→50분(59% 감소)',
+      '포렌식 분석 경험자 6명 대상 수작업 기초 분석 대비 평균 분석 시간 59% 단축',
+      '분석 자동화 프로그램, MCP 서버 9종, 평가 벤치 및 학습용 데이터셋 오픈소스 공개',
     ],
     tech: ['LangGraph', 'MCP', 'Python'],
     links: [
       { label: 'B-gent GitHub', url: 'https://github.com/BoB-14th-B-gent/B-gent' },
+    ],
+  },
+  {
+    title: 'DAH 2026 방산 Agentic AI 사이버 보안 해커톤',
+    period: '2026.06 - 2026.08',
+    summary: 'LIG Defense & Aerospace가 주최한 방산 Agentic AI 공방 해커톤에서 공격·방어 시나리오와 방어 아키텍처를 설계해 본선에 진출했습니다.',
+    role: '방산 사이버 공격 사례 조사 / 공격 기법 카탈로그 검증 / 방어 아키텍처 설계',
+    highlights: [
+      'UAV·UGV·위성통신·AI 공급망 공격 사례를 조사하고 방산 위협 시나리오로 구체화',
+      '6개 전술 25개 공격 기법의 사실관계와 근거를 전수 검증하고 ATT&CK ICS·SPARTA·ATLAS에 매핑',
+      '탐지·차단·복구 3계층 방어 아키텍처를 설계하고 MITRE D3FEND 및 NIST·ISO 통제와 연결',
+      '예선 보고서와 아키텍처 산출물을 기반으로 본선 진출',
+    ],
+    tech: ['MITRE ATT&CK', 'MITRE D3FEND', 'SPARTA', 'NIST'],
+    links: [
+      { label: 'DAH 2026', url: 'https://dah.ai.kr/' },
+    ],
+  },
+  {
+    title: 'DFLAB 포렌식 챌린지 문제 출제',
+    period: '2026.05',
+    summary: 'AWS를 활용한 침해사고 시나리오를 팀으로 설계하고, 참가자가 사건 흐름을 추적할 수 있도록 공격 행위를 재현해 분석용 로그를 제작했습니다.',
+    role: 'AWS 공격 환경 구성 / 공격 행위 재현 / 공격 로그 생성 및 검증',
+    highlights: [
+      '클라우드 환경의 침해 흐름을 단계별 포렌식 문제로 구성',
+      '시나리오에 맞는 공격 행위를 직접 수행해 분석 대상 로그 생성',
+      '팀원이 설계한 문제 흐름과 로그의 시간·행위 맥락이 일치하도록 검증',
+    ],
+    tech: ['AWS', 'Cloud Forensics', 'Incident Response'],
+    links: [],
+  },
+  {
+    title: 'SkyLens — K-디지털 챌린지: 넷 챌린지 캠프 시즌13',
+    period: '2026.06 - 현재',
+    summary: '재난 현장 드론의 영상·소리 데이터를 KOREN 분산 인프라에서 분석하고 지도 기반 상황판으로 통합하는 재난 인텔리전스 플랫폼으로 본선에 진출했습니다.',
+    role: '3DGS 시각화 프로토타입 / 실사-시뮬레이션 화면 변환 / 실제 지도 기반 드론 화면 개발',
+    highlights: [
+      'Three.js 커스텀 셰이더로 3DGS 장면의 실사·시뮬레이션·분할 화면 전환 프로토타입 구현',
+      'SuGaR 기반 메시·텍스처 변환 가능성을 검증하고 GPU 실행 환경의 제약을 해결',
+      '서비스 방향 전환에 맞춰 실제 지도 데이터 기반 드론 이동 화면 개발로 역할 전환',
+      '과학기술정보통신부 주최 시즌13 학생팀 본선 진출',
+    ],
+    tech: ['KOREN', 'Three.js', '3DGS', 'CesiumJS'],
+    links: [
+      { label: 'GitHub', url: 'https://github.com/b-re-w/skylens' },
     ],
   },
   {
@@ -104,7 +150,7 @@ export function ProjectsSection() {
     <>
       <section className="mb-12">
         <h2 className="text-[20px] font-bold text-foreground mb-6">
-          Key Projects
+          Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {projects.map((project, index) => (

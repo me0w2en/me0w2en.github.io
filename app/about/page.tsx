@@ -16,9 +16,10 @@ export default function AboutPage() {
             About
           </h1>
           <p className="text-[17px] text-text-secondary leading-relaxed">
+            기업 실무 중 랜섬웨어 사고를 겪은 뒤 보안 분야로 진로를 전환했습니다.{' '}
             <span className="text-foreground font-medium">Digital Forensics</span>와{' '}
-            <span className="text-foreground font-medium">Incident Response</span>에 관심을 가지고,{' '}
-            <span className="text-accent-blue font-medium">DFIR Analyst</span>를 목표로 공부하고 있습니다.
+            <span className="text-foreground font-medium">Incident Response</span>를 중심으로,{' '}
+            AI를 분석 과정에 적용하는 <span className="text-accent-blue font-medium">DFIR Analyst</span>를 목표로 하고 있습니다.
           </p>
         </section>
 
@@ -48,8 +49,39 @@ export default function AboutPage() {
           </div>
         </section>
 
-          {/* 연구 경험 */}
-          <section className="mb-12">
+        {/* Professional Experience */}
+        <section className="mb-12">
+          <h2 className="text-[20px] font-bold text-foreground mb-6">
+            Professional Experience
+          </h2>
+          <div className="space-y-4">
+            {[
+              {
+                title: '보안 스타트업 HSPACE 전략직군 엔지니어 인턴',
+                period: '2025.09 - 2025.12',
+                desc: '금융기업 및 제조기업 모의 침투 테스트 과제 참여',
+              },
+              {
+                title: '㈜우성사료 영업전략팀 사원',
+                period: '2020.08 - 2023.02',
+                desc: '영업 데이터 분석, Excel VBA 기반 보고서 자동화 및 분석 도구 개발',
+              }
+            ].map((item, index) => (
+              <div key={index} className="p-4 rounded-lg bg-background-secondary border border-border-color">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="font-semibold text-foreground">{item.title}</h3>
+                    <p className="text-sm text-text-muted mt-1">{item.desc}</p>
+                  </div>
+                  <span className="text-sm text-text-muted whitespace-nowrap">{item.period}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Research Experience */}
+        <section className="mb-12">
           <h2 className="text-[20px] font-bold text-foreground mb-6">
             Research Experience
           </h2>
@@ -57,76 +89,9 @@ export default function AboutPage() {
             {[
               {
                 title: '충남대학교 사이버보안연구실 학부연구생',
-                period: '2024.02 - 현재',
+                period: '2024.03 - 현재',
                 desc: '충남대학교',
               }
-            ].map((item, index) => (
-              <div key={index} className="p-4 rounded-lg bg-background-secondary border border-border-color">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="font-semibold text-foreground">{item.title}</h3>
-                    <p className="text-sm text-text-muted mt-1">{item.desc}</p>
-                  </div>
-                  <span className="text-sm text-text-muted whitespace-nowrap">{item.period}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Work Experience */}
-        <section className="mb-12">
-          <h2 className="text-[20px] font-bold text-foreground mb-6">
-            Work Experience
-          </h2>
-          <div className="space-y-4">
-            {[
-              {
-                title: '보안 스타트업 HSPACE 전략직군 엔지니어 인턴',
-                period: '2025.06 - 2025.12',
-                desc: '금융기업 및 제조기업 모의 침투 테스트 과제 참여',
-              }
-            ].map((item, index) => (
-              <div key={index} className="p-4 rounded-lg bg-background-secondary border border-border-color">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="font-semibold text-foreground">{item.title}</h3>
-                    <p className="text-sm text-text-muted mt-1">{item.desc}</p>
-                  </div>
-                  <span className="text-sm text-text-muted whitespace-nowrap">{item.period}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 교육 */}
-        <section className="mb-12">
-          <h2 className="text-[20px] font-bold text-foreground mb-6">
-            Certifications & Training
-          </h2>
-          <div className="space-y-4">
-            {[
-              {
-                title: 'KITRI Best of the Best 14기 디지털포렌식 트랙',
-                period: '2025.07 - 2025.12',
-                desc: 'KISA(한국인터넷진흥원)',
-              },
-              {
-                title: 'NSHC Singapore OSINT 교육',
-                period: '2025.01',
-                desc: 'NSHC',
-              },
-              {
-                title: '윤리적 해커 양성 5기',
-                period: '2024.02 - 2024.08',
-                desc: '사이버안보훈련센터',
-              },
-              {
-                title: 'KITRI White-hat School 1기',
-                period: '2023.09 - 2024.04',
-                desc: 'KITRI(한국정보기술연구원)',
-              },
             ].map((item, index) => (
               <div key={index} className="p-4 rounded-lg bg-background-secondary border border-border-color">
                 <div className="flex items-start justify-between gap-4">
@@ -144,13 +109,20 @@ export default function AboutPage() {
         {/* Projects */}
         <ProjectsSection />
 
-        {/* Publications / Posters */}
+        {/* Publications & Presentations */}
         <section className="mb-12">
           <h2 className="text-[20px] font-bold text-foreground mb-6">
-            Publications / Posters
+            Publications & Presentations
           </h2>
           <div className="space-y-4">
             {[
+              {
+                title: '복합 증거 디지털 포렌식을 위한 자율형 LLM 예비 평가 및 개선 방안',
+                venue: '한국정보과학회 KCC 2026 학부생/주니어논문경진대회',
+                year: '2026',
+                type: 'Poster',
+                isFirstAuthor: true,
+              },
               {
                 title: 'sLLM(smaller Large Language Model) 기반 다중 소스 포렌식 증거 상관분석 프레임워크',
                 venue: '한국정보보호학회 동계 학술대회',
@@ -246,6 +218,21 @@ export default function AboutPage() {
           <div className="space-y-4">
             {[
               {
+                title: 'KCC2026 학부생/주니어논문경진대회 학부생부문 우수상',
+                org: '한국정보과학회 · 1저자 및 직접 발표',
+                period: '2026.08',
+              },
+              {
+                title: 'BoB 14기 WhiteHat 10 인증 한국인터넷진흥원장상',
+                org: 'KISA(한국인터넷진흥원)',
+                period: '2026.02',
+              },
+              {
+                title: '한국디지털포렌식학회 동계 학술대회 우수논문상',
+                org: '한국디지털포렌식학회 · 공동저자',
+                period: '2025.11',
+              },
+              {
                 title: '충남대학교 SW/AI Project Fair 주니어 부문 2위',
                 org: '충남대학교',
                 period: '2024.11',
@@ -269,6 +256,57 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Training & Certifications */}
+        <section className="mb-12">
+          <h2 className="text-[20px] font-bold text-foreground mb-6">
+            Training & Certifications
+          </h2>
+          <div className="space-y-4">
+            {[
+              {
+                title: 'Cisco VIP(Virtual Internship Program) 2026 하계 과정',
+                period: '2026.06 - 2026.07',
+                desc: 'Cisco Korea · 과학기술정보통신부',
+              },
+              {
+                title: 'HSPACE DFLAB 1기',
+                period: '2025.06 - 현재',
+                desc: 'HSPACE',
+              },
+              {
+                title: 'KITRI Best of the Best 14기 디지털포렌식 트랙',
+                period: '2025.06 - 2026.02',
+                desc: 'KISA(한국인터넷진흥원) · WhiteHat 10 선정',
+              },
+              {
+                title: 'NSHC Singapore OSINT 교육',
+                period: '2025.01',
+                desc: 'NSHC',
+              },
+              {
+                title: '윤리적 해커 양성 5기',
+                period: '2024.02 - 2024.08',
+                desc: '사이버안보훈련센터',
+              },
+              {
+                title: 'KITRI White-hat School 1기',
+                period: '2023.09 - 2024.04',
+                desc: 'KITRI(한국정보기술연구원)',
+              },
+            ].map((item, index) => (
+              <div key={index} className="p-4 rounded-lg bg-background-secondary border border-border-color">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="font-semibold text-foreground">{item.title}</h3>
+                    <p className="text-sm text-text-muted mt-1">{item.desc}</p>
+                  </div>
+                  <span className="text-sm text-text-muted whitespace-nowrap">{item.period}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Activities */}
         <section className="mb-12">
           <h2 className="text-[20px] font-bold text-foreground mb-6">
@@ -276,6 +314,18 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-4">
             {[
+              {
+                title: '교육부·한국과학창의재단 「함성소리」 교육 봉사',
+                org: '고등학생 대상 Python 프로그래밍 및 Qushing 위협 대응 교육 4회',
+                period: '2025.05 - 2025.06',
+                links: [],
+              },
+              {
+                title: '충남대학교 정보보호동아리 ARGOS 교육부장',
+                org: '보안 교육 커리큘럼 및 동아리 교육 운영',
+                period: '2025',
+                links: [],
+              },
               {
                 title: 'KUCIS(대학정보보호동아리연합회) 충청권역 대표',
                 org: 'KISIA(정보보호산업협회)',
@@ -305,14 +355,6 @@ export default function AboutPage() {
                 links: [],
               },
               {
-                title: 'Just For Security CTF - 포렌식 문제 출제',
-                org: '충남대학교 정보보호 동아리 ARGOS 주최 CTF 대회',
-                period: '2024.11',
-                links: [
-                  { type: 'github', url: 'https://github.com/4RG0S/2024-JFS-Problemset/tree/main/forensic', label: 'GitHub' },
-                ],
-              },
-              {
                 title: 'ARGOS 하계 보안집중교육 - 디지털포렌식 강의',
                 org: '파일시스템 복구, 디스크 이미징, 메모리 포렌식 (3회차)',
                 period: '2024.08',
@@ -321,12 +363,6 @@ export default function AboutPage() {
                   { type: 'google drive', url: 'https://drive.google.com/file/d/1FJcm-MA0vNkZPtW0UgFzpHUnYX-Jqra5/view?usp=drive_link', label: '강의 자료 #2' },
                   { type: 'google drive', url: 'https://drive.google.com/file/d/1AX8_LlN4QBXD_F7R3B0q5Vvjj3UOgvf-/view?usp=drive_link', label: '강의 자료 #3' },
                 ],
-              },
-              {
-                title: '지역 공기업 홈페이지 안전진단',
-                org: '윤리적 해커 양성 교육 프로그램 실습',
-                period: '2024.05',
-                links: [],
               },
               {
                 title: 'ARGOS 해킹시연회 발표 : 랜섬웨어 감염 시나리오',
@@ -382,10 +418,10 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Skills */}
+        {/* Technical Skills */}
         <section className="mb-12">
           <h2 className="text-[20px] font-bold text-foreground mb-6">
-            Skills
+            Technical Skills
           </h2>
           <div className="space-y-6">
             {/* Security */}
@@ -422,6 +458,7 @@ export default function AboutPage() {
                   { name: 'React', color: 'bg-[#61dafb] text-black' },
                   { name: 'Git', color: 'bg-[#f05032]' },
                   { name: 'Docker', color: 'bg-[#2496ed]' },
+                  { name: 'AWS', color: 'bg-[#ff9900] text-black' },
                   { name: 'LangGraph', color: 'bg-[#1c3c3c]' },
                 ].map((tech) => (
                   <span
@@ -436,10 +473,10 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Contacts */}
+        {/* Contact */}
         <section>
           <h2 className="text-[20px] font-bold text-foreground mb-6">
-            Contacts
+            Contact
           </h2>
           <div className="flex flex-wrap gap-3">
             <Link
