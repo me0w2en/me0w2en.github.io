@@ -16,6 +16,10 @@
 # production
 /build
 
+# generated portfolio review artifacts
+/output/
+/tmp/
+
 # misc
 .DS_Store
 *.pem

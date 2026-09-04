@@ -27,13 +27,13 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
   const posts = getPostsByTag(tag);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+    <div className="min-h-screen bg-background">
+      <div className="mx-auto max-w-[1024px] px-5 py-10">
+        <div className="mb-8">
+          <h1 className="mb-2 text-[28px] font-bold text-foreground">
             #{tag}
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-[16px] text-text-secondary">
             이 태그가 포함된 포스트 ({posts.length}개)
           </p>
         </div>

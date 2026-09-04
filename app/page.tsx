@@ -1,47 +1,53 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
 import { getAllPosts, getAllSeriesWithInfo } from '@/lib/posts';
 import { PostCard } from '@/components/post/PostCard';
-import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'me0w2en | Digital Forensics & Incident Response',
+  description: '디지털 포렌식, 침해사고 대응, AI 기반 분석 자동화 프로젝트와 기록',
+};
 
 export default function Home() {
-  const allPosts = getAllPosts().filter(post => post.category !== 'mogakco');
+  const allPosts = getAllPosts();
   const allSeries = getAllSeriesWithInfo();
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Banner Section */}
-      <section>
-        <div className="max-w-[1024px] mx-auto px-5 py-6">
-          <div className="rounded-xl overflow-hidden bg-background-secondary">
-            <img
+      <section aria-label="블로그 배너">
+        <div className="mx-auto max-w-[1024px] px-5 py-6">
+          <div className="overflow-hidden rounded-xl bg-background-secondary">
+            <Image
               src="/images/banner.png"
-              alt="Banner"
-              className="w-full h-auto object-cover"
-              style={{ aspectRatio: '7/1' }}
+              alt="me0w2en 블로그 배너"
+              width={3275}
+              height={680}
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="h-auto w-full object-cover"
             />
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-10">
-        <div className="max-w-[1024px] mx-auto px-5">
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Posts Section - Left */}
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-[20px] font-semibold text-foreground">
+      <section className="py-10" aria-labelledby="recent-posts-title">
+        <div className="mx-auto max-w-[1024px] px-5">
+          <div className="flex flex-col gap-8 lg:flex-row">
+            <div className="min-w-0 flex-1">
+              <div className="mb-6 flex items-center justify-between">
+                <h1 id="recent-posts-title" className="text-[20px] font-semibold text-foreground">
                   최근 글
-                </h2>
+                </h1>
                 <Link
                   href="/posts"
-                  className="text-[14px] text-text-secondary hover:text-accent-blue transition-colors"
+                  className="text-[14px] text-text-secondary transition-colors hover:text-accent-blue"
                 >
-                  전체보기 →
+                  전체보기 <span aria-hidden="true">→</span>
                 </Link>
               </div>
 
               {allPosts.length === 0 ? (
-                <div className="text-center py-20 text-text-muted">
+                <div className="py-20 text-center text-text-muted">
                   아직 작성된 글이 없습니다.
                 </div>
               ) : (
@@ -59,19 +65,18 @@ export default function Home() {
               )}
             </div>
 
-            {/* Series Section - Right Sidebar */}
             {allSeries.length > 0 && (
-              <aside className="w-full lg:w-[280px] flex-shrink-0">
+              <aside className="w-full shrink-0 lg:w-[280px]" aria-labelledby="series-title">
                 <div className="lg:sticky lg:top-[80px]">
-                  <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-[16px] font-semibold text-foreground">
+                  <div className="mb-4 flex items-center justify-between">
+                    <h2 id="series-title" className="text-[16px] font-semibold text-foreground">
                       시리즈
                     </h2>
                     <Link
                       href="/series"
-                      className="text-[13px] text-text-secondary hover:text-accent-blue transition-colors"
+                      className="text-[13px] text-text-secondary transition-colors hover:text-accent-blue"
                     >
-                      전체보기 →
+                      전체보기 <span aria-hidden="true">→</span>
                     </Link>
                   </div>
 
@@ -80,13 +85,13 @@ export default function Home() {
                       <Link
                         key={series.name}
                         href={`/series/${encodeURIComponent(series.name)}`}
-                        className="group block p-4 rounded-lg bg-background-secondary border border-border-color hover:border-accent-blue transition-all duration-200 animate-fade-in"
+                        className="group block rounded-lg border border-border-color bg-background-secondary p-4 transition-all duration-200 hover:border-accent-blue animate-fade-in"
                         style={{ animationDelay: `${index * 0.05}s` }}
                       >
-                        <h3 className="font-medium text-[14px] text-foreground group-hover:text-accent-blue transition-colors">
+                        <h3 className="text-[14px] font-medium text-foreground transition-colors group-hover:text-accent-blue">
                           {series.name}
                         </h3>
-                        <p className="text-[12px] text-text-muted mt-1">
+                        <p className="mt-1 text-[12px] text-text-muted">
                           {series.count}개의 포스트
                         </p>
                       </Link>

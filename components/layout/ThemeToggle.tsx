@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -13,19 +13,22 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <button className="p-2 rounded-md hover:bg-gray-100 transition-colors">
+      <button className="ml-1 flex h-11 w-11 items-center justify-center rounded-full border border-border-color text-text-secondary" aria-label="테마 설정 불러오는 중" disabled>
         <div className="w-5 h-5" />
       </button>
     );
   }
 
+  const isDark = resolvedTheme === 'dark';
+
   return (
     <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="p-2 rounded-md hover:bg-gray-100 transition-colors"
-      aria-label="Toggle theme"
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      className="ml-1 flex h-11 w-11 items-center justify-center rounded-full border border-border-color text-text-secondary transition-colors hover:border-accent-blue hover:text-accent-blue"
+      aria-label={isDark ? '라이트 테마로 전환' : '다크 테마로 전환'}
+      title={isDark ? '라이트 테마로 전환' : '다크 테마로 전환'}
     >
-      {theme === 'dark' ? (
+      {isDark ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

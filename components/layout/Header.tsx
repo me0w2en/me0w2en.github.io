@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { ThemeToggle } from './ThemeToggle';
 
 const navigation = [
-  { name: 'Posts', href: '/posts' },
-  { name: 'Tags', href: '/tags' },
+  { name: 'Writing', href: '/posts' },
   { name: 'About', href: '/about' },
 ];
 
@@ -13,36 +13,32 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-[100] w-full h-[60px] bg-white dark:bg-[#1a1a1a] border-b border-border-color">
-      <nav className="h-full max-w-[1024px] mx-auto px-5 flex items-center justify-between">
-        {/* Logo */}
+    <header className="sticky top-0 z-[100] h-[68px] w-full border-b border-border-color bg-[var(--header-background)] backdrop-blur-xl">
+      <nav aria-label="주요 메뉴" className="mx-auto flex h-full max-w-[1180px] items-center justify-between px-5 lg:px-8">
         <Link href="/" className="font-semibold text-lg text-foreground link-hover">
           me0w2en.log
         </Link>
 
-        {/* Navigation */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-1 sm:gap-2">
           {navigation.map((item) => {
-            const isActive = pathname === item.href ||
-              (item.href !== '/' && pathname?.startsWith(item.href));
+            const isActive = pathname === item.href || pathname?.startsWith(`${item.href}/`);
 
             return (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-[16px] font-medium transition-colors duration-200 ${
+                aria-current={isActive ? 'page' : undefined}
+                className={`inline-flex min-h-11 items-center rounded-full px-3 text-sm font-semibold transition-colors sm:px-4 ${
                   isActive
-                    ? 'text-foreground font-semibold'
-                    : 'text-text-secondary hover:text-foreground'
+                    ? 'bg-background-tertiary text-foreground'
+                    : 'text-text-secondary hover:bg-background-tertiary hover:text-foreground'
                 }`}
               >
                 {item.name}
-                {isActive && (
-                  <span className="block h-[2px] bg-accent-blue mt-1 -mb-[2px]" />
-                )}
               </Link>
             );
           })}
+          <ThemeToggle />
         </div>
       </nav>
     </header>

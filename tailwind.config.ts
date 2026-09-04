@@ -19,6 +19,7 @@ const config: Config = {
         "text-muted": "var(--text-muted)",
         "border-color": "var(--border-color)",
         "accent-blue": "var(--accent-blue)",
+        "accent-soft": "var(--accent-soft)",
       },
       maxWidth: {
         container: "1024px",

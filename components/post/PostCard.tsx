@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { PostMeta } from '@/lib/types';
 import { format } from 'date-fns';
 import { ko } from 'date-fns/locale';
@@ -13,7 +14,11 @@ export function PostCard({ post }: PostCardProps) {
     : `/forensics/${post.slug}`;
 
   return (
-    <Link href={postUrl} className="block article-card group">
+    <Link
+      href={postUrl}
+      aria-label={`${post.title} 글 읽기`}
+      className="block article-card group"
+    >
       <article className="flex items-start justify-between gap-6">
         {/* Content */}
         <div className="flex-1 min-w-0">
@@ -36,7 +41,7 @@ export function PostCard({ post }: PostCardProps) {
             </time>
             {post.tags.length > 0 && (
               <>
-                <span>·</span>
+                <span aria-hidden="true">·</span>
                 <span>{post.tags[0]}</span>
               </>
             )}
@@ -46,15 +51,18 @@ export function PostCard({ post }: PostCardProps) {
         {/* Thumbnail */}
         {post.image ? (
           <div className="w-[120px] h-[80px] sm:w-[160px] sm:h-[100px] rounded-lg overflow-hidden bg-background-secondary flex-shrink-0">
-            <img
+            <Image
               src={post.image}
               alt=""
+              width={160}
+              height={100}
+              sizes="(max-width: 640px) 120px, 160px"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
           </div>
         ) : (
           <div className="w-[120px] h-[80px] sm:w-[160px] sm:h-[100px] rounded-lg bg-background-secondary flex-shrink-0 flex items-center justify-center">
-            <svg className="w-8 h-8 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg aria-hidden="true" className="w-8 h-8 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
           </div>
