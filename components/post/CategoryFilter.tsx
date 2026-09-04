@@ -18,7 +18,6 @@ export function CategoryFilter({ posts }: CategoryFilterProps) {
   const categories = [
     { id: 'all' as const, label: 'All', count: posts.length },
     { id: 'forensics' as const, label: 'Forensics', count: posts.filter(p => p.category === 'forensics').length },
-    { id: 'mogakco' as const, label: '모각코', count: posts.filter(p => p.category === 'mogakco').length },
   ];
 
   return (

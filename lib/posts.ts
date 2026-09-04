@@ -4,15 +4,15 @@ import matter from 'gray-matter';
 import { Post, PostMeta, Category } from './types';
 
 const contentDirectory = path.join(process.cwd(), 'content');
+const publicCategories: Category[] = ['forensics'];
 
 /**
- * 모든 포스트를 가져옵니다 (draft 제외)
+ * 공개 포스트를 가져옵니다 (비공개 카테고리 및 draft 제외)
  */
 export function getAllPosts(): PostMeta[] {
-  const categories: Category[] = ['mogakco', 'forensics'];
   const allPosts: PostMeta[] = [];
 
-  categories.forEach((category) => {
+  publicCategories.forEach((category) => {
     const categoryDir = path.join(contentDirectory, category);
 
     if (!fs.existsSync(categoryDir)) {
@@ -63,6 +63,10 @@ export function getAllPosts(): PostMeta[] {
  * 특정 slug의 포스트를 가져옵니다
  */
 export function getPostBySlug(slug: string, category: Category): Post | null {
+  if (!publicCategories.includes(category)) {
+    return null;
+  }
+
   const categoryDir = path.join(contentDirectory, category);
   const possibleExtensions = ['.md', '.mdx'];
 
