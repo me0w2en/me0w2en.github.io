@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AboutSectionNav } from '@/components/about/AboutSectionNav';
+import { CareerTimeline } from '@/components/about/CareerTimeline';
 import { ProjectsSection } from '@/components/about/ProjectsSection';
 
 type ActivityItem = {
@@ -107,6 +108,14 @@ export default function AboutPage() {
             </p>
           </div>
         </header>
+
+        {/* Timeline */}
+        <section id="timeline" className="mb-12 scroll-mt-24">
+          <h2 className="text-[20px] font-bold text-foreground mb-6">
+            Timeline
+          </h2>
+          <CareerTimeline />
+        </section>
 
         {/* 학력 */}
         <section id="education" className="mb-12 scroll-mt-24">
