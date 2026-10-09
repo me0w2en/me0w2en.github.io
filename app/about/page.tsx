@@ -478,6 +478,12 @@ export default function AboutPage() {
                 period: '2024.03',
                 links: [],
               },
+              {
+                title: '코드클럽 찾아가는 SW 교육기부단',
+                org: '대전도솔초등학교 4학년 대상 스크래치 프로그래밍 교육 봉사, 총 12시간',
+                period: '2023.04 - 2023.07',
+                links: [],
+              },
             ] as ActivityItem[]).map((item, index) => (
               <div key={index} className="rounded-lg border border-border-color bg-background-secondary p-4 transition-colors hover:border-accent-blue/50">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
